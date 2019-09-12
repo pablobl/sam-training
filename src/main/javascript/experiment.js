@@ -1,6 +1,9 @@
 const AWS = require('aws-sdk');
+let response;
 
-exports.handler = function(event, context, callback) {
+
+
+exports.handler = async (event, context) {
 
   var params = {
     Bucket: 'nicehelloforfede',
@@ -14,10 +17,17 @@ exports.handler = function(event, context, callback) {
     const buf = Buffer.from(data.Body, 'hex')
     text = buf.toString('utf8');
     console.log(text);
-    callback(null, {
-      "isBase64Encoded": false,
-      "statusCode": 200,
-      "body": text
-    });
+    try{
+        response = {
+          'statusCode': 200,
+          'body': JSON.stringify({
+            location: text.trim()
+          })
+        }
+      } catch (err) {
+          console.log(err);
+          return err;
+      }
+      return response
   });
 };
