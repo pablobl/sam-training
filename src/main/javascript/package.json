@@ -1,0 +1,12 @@
+{
+  "name": "sam_training",
+  "version": "1.0.0",
+  "description": "sam training sample for NodeJS",
+  "main": "experiment.js",
+  "repository": "https://github.com/pablobl/sam-training",
+  "author": "SAM CLI",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
